@@ -101,7 +101,7 @@
     }),
     validations: {
       email: {email, required},
-      password: {required, minLength: minLength(8)},
+      password: {required, minLength: minLength(6)},
       name: {required},
       agree: {checked: v => v} // checkbox
     },
@@ -118,9 +118,12 @@
           password: this.password,
           name: this.name
         }
-        console.log(formData) // for backend
+        // console.log(formData) // for backend
+        try {
+          this.$store.dispatch('register', formData)
+          this.$router.push('/')
+        } catch(e) {}
 
-        this.$router.push('/')
       }
     }
   }

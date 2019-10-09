@@ -47,10 +47,9 @@
       dropdown: null,
     }),
     methods: {
-      logout() {
-        console.log('Logout')
-        // console.log(this.$router)
-        this.$router.push('/login?message="logout"')
+      async logout() {
+        this.$store.dispatch('logout')
+        this.$router.push('/login?message=logout')
       }
     },
     mounted() {
